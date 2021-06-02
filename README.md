@@ -11,6 +11,7 @@ Allows you to select a json model where the property name is the property and th
 
 - Select the json object
 - Right click then select Convert to JS Model or ctrl+shift+p type and select Convert to JS Model
+- Enter a class name or press enter for the default
 
 ## Requirements
 
