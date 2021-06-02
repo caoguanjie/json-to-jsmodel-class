@@ -3,9 +3,10 @@
 	"displayName": "json-to-jsmodel",
 	"publisher": "castello-dev",
 	"description": "converts selected json object to javascript model",
+	"repository": "https://github.com/CastelloDev/json-to-jsmodel",
 	"version": "0.0.3",
 	"engines": {
-		"vscode": "1.55.2"
+		"vscode": "^1.55.2"
 	},
 	"categories": [
 		"Other"

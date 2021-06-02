@@ -1,10 +1,16 @@
-# json-to-jsmodel README
+![](images/icon.png) 
+# json-to-jsmodel
 
 Converts the selected json object to a javascript model.
 
 ## Features
 
 Allows you to select a json model where the property name is the property and the property value is the type and convert it into a js class with jsdoc definitions
+
+![demo](demo.gif)
+
+- Select the json object
+- Right click then select Convert to JS Model or ctrl+shift+p type and select Convert to JS Model
 
 ## Requirements
 
