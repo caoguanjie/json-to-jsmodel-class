@@ -1,10 +1,12 @@
 {
 	"name": "json-to-jsmodel",
-	"displayName": "json-to-jsmodel",
+	"displayName": "JSON to jsmodel",
 	"publisher": "castello-dev",
 	"description": "converts selected json object to javascript model",
 	"repository": "https://github.com/CastelloDev/json-to-jsmodel",
-	"version": "0.0.3",
+	"keywords":["javascript", "json", "convert", "jsdoc", "create", "jsmodel", "class"],
+	"icon": "images/icon.png",
+	"version": "0.0.5",
 	"engines": {
 		"vscode": "^1.55.2"
 	},
@@ -37,7 +39,9 @@
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.js",
+		"publish": "vsce publish"
+
 	},
 	"devDependencies": {
 		"@types/vscode": "1.39.0",

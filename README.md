@@ -1,7 +1,7 @@
 ![](images/icon.png) 
 # json-to-jsmodel
 
-Converts the selected json object to a javascript model.
+Converts the selected json object to a jsdoc javascript model.
 
 ## Features
 
@@ -38,5 +38,13 @@ Fixed bug where property type was swapped with property name in constructor
 ### 0.0.3
 
 Add support for vs code 1.55.2
+
+### 0.0.4
+
+Improved documentation
+
+### 0.0.5
+
+Added an icon
 
 **Enjoy!**
