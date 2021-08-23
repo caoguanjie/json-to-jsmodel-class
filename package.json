@@ -6,7 +6,7 @@
 	"repository": "https://github.com/CastelloDev/json-to-jsmodel",
 	"keywords":["javascript", "json", "convert", "jsdoc", "create", "jsmodel", "class"],
 	"icon": "images/icon.png",
-	"version": "0.0.5",
+	"version": "0.0.7",
 	"engines": {
 		"vscode": "^1.55.2"
 	},

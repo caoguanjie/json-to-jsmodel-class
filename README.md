@@ -11,7 +11,7 @@ Allows you to select a json model where the property name is the property and th
 
 - Select the json object
 - Right click then select Convert to JS Model or ctrl+shift+p type and select Convert to JS Model
-- Enter a class name or press enter for the default
+- Enter a class name or press enter for the default (file name)
 
 ## Requirements
 
@@ -23,7 +23,9 @@ None
 
 ## Known Issues
 
-Can not handle nested objects
+- Can not handle nested objects (fixed in v0.0.6)
+- Does not identify Similar class types when handling nested objects
+- Does not handle arrays
 
 ## Release Notes
 
@@ -46,5 +48,18 @@ Improved documentation
 ### 0.0.5
 
 Added an icon
+
+### 0.0.6
+
+- Removed ClassName from Constructor declaration
+- Changed default ClassName to be the name of the current opened file
+- Added support for nested Objects
+- Changed types to be Capitalized
+- Added support for DateTime identification
+
+### 0.0.7
+
+- Added support for nested Arrays
+- Fixed setting file name for default class name
 
 **Enjoy!**
