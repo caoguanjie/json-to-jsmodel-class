@@ -4,9 +4,17 @@
 	"publisher": "castello-dev",
 	"description": "converts selected json object to javascript model",
 	"repository": "https://github.com/CastelloDev/json-to-jsmodel",
-	"keywords":["javascript", "json", "convert", "jsdoc", "create", "jsmodel", "class"],
+	"keywords": [
+		"javascript",
+		"json",
+		"convert",
+		"jsdoc",
+		"create",
+		"jsmodel",
+		"class"
+	],
 	"icon": "images/icon.png",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"engines": {
 		"vscode": "^1.55.2"
 	},
@@ -41,7 +49,6 @@
 		"lint": "eslint src --ext ts",
 		"test": "node ./out/test/runTest.js",
 		"publish": "vsce publish"
-
 	},
 	"devDependencies": {
 		"@types/vscode": "1.39.0",
@@ -55,5 +62,8 @@
 		"mocha": "8.4.0",
 		"typescript": "4.2.4",
 		"vscode-test": "1.5.2"
+	},
+	"dependencies": {
+		"dirty-json": "0.9.2"
 	}
 }

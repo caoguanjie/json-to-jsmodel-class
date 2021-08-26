@@ -24,8 +24,8 @@ None
 ## Known Issues
 
 - Can not handle nested objects (fixed in v0.0.6)
+- Does not handle arrays (fixed in v0.0.7)
 - Does not identify Similar class types when handling nested objects
-- Does not handle arrays
 
 ## Release Notes
 
@@ -61,5 +61,9 @@ Added an icon
 
 - Added support for nested Arrays
 - Fixed setting file name for default class name
+
+### 0.0.8
+
+- Added support for "dirty" json objects
 
 **Enjoy!**
