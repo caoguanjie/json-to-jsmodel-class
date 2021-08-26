@@ -66,4 +66,9 @@ Added an icon
 
 - Added support for "dirty" json objects
 
+### 0.0.9
+
+- Fixed default name for untitled files
+- Changed Constructor typedef to shorthand
+
 **Enjoy!**

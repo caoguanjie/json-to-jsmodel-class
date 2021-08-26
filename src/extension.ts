@@ -17,7 +17,7 @@ const convertToJSModel = async() => {
 		const fileName = getFileName(editor);
 
 		vscode.window.showInformationMessage('Enter a class name at the top');
-		const _className = await vscode.window.showInputBox({ placeHolder: `Enter class name or press Enter for default (${fileName})`});
+		const _className = await vscode.window.showInputBox({ placeHolder: `Enter class name or press Enter for default (${fileName || `MyClass`})`});
 		let insertPos = editor?.selection.end;
 		const className = _className || fileName || `MyClass`;
 		
