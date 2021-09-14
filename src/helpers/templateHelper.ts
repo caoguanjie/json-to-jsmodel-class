@@ -15,11 +15,11 @@ const getTemplate = (className: String) => (
 	[
 		`export class ${className} {`,
 		`\t/**`,
-		`\t * @typedef {Object} Constructor`,
+		`\t * @typedef {Object} ${className}~Constructor`,
 		Placeholder.CLASS_PROPERTIES,
 		`\t */`,
 		`\t/**`,
-		`\t * @param {Constructor} Constructor - Constructor`,
+		`\t * @param {${className}~Constructor} Constructor - Constructor`,
 		`\t */`,
 		Placeholder.CONSTRUCTOR_PARAMS,
 		Placeholder.CONSTRUCTOR_PROPERTIES,

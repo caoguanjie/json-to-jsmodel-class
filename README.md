@@ -71,4 +71,8 @@ Added an icon
 - Fixed default name for untitled files
 - Changed Constructor typedef to shorthand
 
+### 1.0.0
+
+- Reimplemented custom Constructor Object naming by separation of ~
+
 **Enjoy!**
