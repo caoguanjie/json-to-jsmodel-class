@@ -6,31 +6,33 @@ interface JSClass {
 }
 
 const Placeholder = {
-	CLASS_PROPERTIES: `CLASS_PROPERTIES`,
-	CONSTRUCTOR_PARAMS: `CONSTRUCTOR_PARAMS`,
-	CONSTRUCTOR_PROPERTIES: `CONSTRUCTOR_PROPERTIES` 
+    CLASS_PROPERTIES_STATE: `CLASS_PROPERTIES_STATE`,
+    CLASS_PROPERTIES: `CLASS_PROPERTIES`,
+    CONSTRUCTOR_PARAMS: `CONSTRUCTOR_PARAMS`,
+    CONSTRUCTOR_PROPERTIES: `CONSTRUCTOR_PROPERTIES`
 };
 
 const getTemplate = (className: String) => (
-	[
-		`export class ${className} {`,
-		`\t/**`,
-		`\t * @typedef {Object} ${className}~Constructor`,
-		Placeholder.CLASS_PROPERTIES,
-		`\t */`,
-		`\t/**`,
-		`\t * @param {${className}~Constructor} Constructor - Constructor`,
-		`\t */`,
-		Placeholder.CONSTRUCTOR_PARAMS,
-		Placeholder.CONSTRUCTOR_PROPERTIES,
-		`\t}`,
-		`}`
+    [
+        `export class ${className} {`,
+        Placeholder.CLASS_PROPERTIES_STATE,
+        `\t/**`,
+        `\t * @typedef  {Object} ${className}`,
+        Placeholder.CLASS_PROPERTIES,
+        `\t */`,
+        `\t/**`,
+        `\t */`,
+        Placeholder.CONSTRUCTOR_PARAMS,
+        Placeholder.CONSTRUCTOR_PROPERTIES,
+        `\t}`,
+        `}`
 
-	]
+    ]
 );
 
+const getClassPropertiesStateTemplate = (property: String, type: String) => `\t ${property}: ${type}`;//TODO: Add capitalize back
 const getClassPropertiesTemplate = (property: String, type: String) => `\t * @property {${type}} ${property}`;//TODO: Add capitalize back
-const getConstructorParamsTemplate = (properties: String[]) => `\tconstructor({ ${properties.join(`, `)} } = {}) {`;
+const getConstructorParamsTemplate = (properties: String[]) => `\tconstructor({ ${properties.join(`, `)} } = {} as any) {`;
 const getConstructorPropertiesTemplate = (property: String) => `\t\tthis.${property} = ${property};`;
 
 const getModelsFromJson = (json: Object, className: String, classes: JSClass[] = []) => {
@@ -39,20 +41,20 @@ const getModelsFromJson = (json: Object, className: String, classes: JSClass[] =
     Object.entries(json).forEach(([key, value]) => {
         const type = typeof value;
 
-        if(type === `string` && isDateTimeISO(value)) {
+        if (type === `string` && isDateTimeISO(value)) {
             model[key] = `DateTime`; //luxon DateTime class
-        }else if(type === `object`) {
-            if(Array.isArray(value)) {
-                const arrayValue = value.length>0 ? value[0] : null;
+        } else if (type === `object`) {
+            if (Array.isArray(value)) {
+                const arrayValue = value.length > 0 ? value[0] : null;
                 let arrayType = arrayValue ? typeof arrayValue : `Object`;
 
-                if(arrayType === `string` && isDateTimeISO(arrayValue)) {
+                if (arrayType === `string` && isDateTimeISO(arrayValue)) {
                     arrayType = `DateTime`; //luxon DateTime class
-                } else if(arrayType === `object`) {
+                } else if (arrayType === `object`) {
                     const objectName = capitalize(key);
-                    const classExists = classes.some(jsClass=>jsClass.className === objectName && Object.entries(jsClass.model).every(([jsKey, jsValue]) => arrayValue[jsKey] === jsValue));
+                    const classExists = classes.some(jsClass => jsClass.className === objectName && Object.entries(jsClass.model).every(([jsKey, jsValue]) => arrayValue[jsKey] === jsValue));
                     arrayType = objectName;
-                    if(!classExists) {
+                    if (!classExists) {
                         classes = getModelsFromJson(arrayValue, objectName, classes);
                     }
                 }
@@ -60,10 +62,10 @@ const getModelsFromJson = (json: Object, className: String, classes: JSClass[] =
                 model[key] = `${capitalize(arrayType)}[]`;
             } else {
                 const objectName = capitalize(key);
-                const classExists = classes.some(jsClass=>jsClass.className === objectName && Object.entries(jsClass.model).every(([jsKey, jsValue]) => value[jsKey] === jsValue));
-                
+                const classExists = classes.some(jsClass => jsClass.className === objectName && Object.entries(jsClass.model).every(([jsKey, jsValue]) => value[jsKey] === jsValue));
+
                 model[key] = objectName;
-                if(!classExists) {
+                if (!classExists) {
                     classes = getModelsFromJson(value, objectName, classes);
                 }
             }
@@ -72,13 +74,14 @@ const getModelsFromJson = (json: Object, className: String, classes: JSClass[] =
         }
     });
 
-    classes.push({className, model});
+    classes.push({ className, model });
     return classes;
 };
 
 export {
     Placeholder,
     getTemplate,
+    getClassPropertiesStateTemplate,
     getClassPropertiesTemplate,
     getConstructorParamsTemplate,
     getConstructorPropertiesTemplate,
