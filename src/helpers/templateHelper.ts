@@ -20,8 +20,6 @@ const getTemplate = (className: String) => (
         `\t * @typedef  {Object} ${className}`,
         Placeholder.CLASS_PROPERTIES,
         `\t */`,
-        `\t/**`,
-        `\t */`,
         Placeholder.CONSTRUCTOR_PARAMS,
         Placeholder.CONSTRUCTOR_PROPERTIES,
         `\t}`,
