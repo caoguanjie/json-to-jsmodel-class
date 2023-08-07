@@ -1,5 +1,5 @@
 export const capitalize = (word: string) => {
-    const baseType = ['any', 'boolean', 'number', 'string', 'array', 'void', 'Undefined', 'null', 'never', 'unknown'];
+    const baseType = ['any', 'object', 'boolean', 'number', 'string', 'array', 'void', 'Undefined', 'null', 'never', 'unknown'];
     if (baseType.includes(word)) {
         return word;
     }
