@@ -52,3 +52,7 @@ export class CurrentUser {
 ```sh
 vsce package
 ```
+
+## 手动发布VSIX包
+
+打开vscode后台发布地址：[Manage Publishers & Extensions](https://marketplace.visualstudio.com/manage/publishers)
