@@ -15,7 +15,7 @@
         "class"
     ],
     "icon": "images/icon.png",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "engines": {
         "vscode": "^1.55.2"
     },
@@ -27,15 +27,19 @@
     ],
     "main": "./out/extension.js",
     "contributes": {
-        "commands": [{
-            "command": "json-to-jsmodel.convertToJsModel",
-            "title": "Convert to JS Class Model"
-        }],
-        "menus": {
-            "editor/context": [{
+        "commands": [
+            {
                 "command": "json-to-jsmodel.convertToJsModel",
-                "group": "json-to-jsmodel"
-            }]
+                "title": "Convert to JS Class Model"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "json-to-jsmodel.convertToJsModel",
+                    "group": "json-to-jsmodel"
+                }
+            ]
         }
     },
     "scripts": {
